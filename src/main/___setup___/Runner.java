@@ -17,7 +17,7 @@ public abstract class Runner {
 
     public void run(String day) {
         Map<String, List<String>> inputs = loadInputs(
-                String.format("%s\\src\\resources\\%s", System.getProperty("user.dir"), day.toLowerCase()));
+                String.format("%s\\src\\resources\\%s", System.getProperty("user.dir"), day));
 
         System.out.printf("\nRunning %s...\n", day);
         for (String key : inputs.keySet()) {
