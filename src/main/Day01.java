@@ -1,12 +1,12 @@
-package src.main.day02;
+package src.main;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
 import src.main.___setup___.Runner;
 
-public class Day02 extends Runner {
-    private static Runner runner = new Day02(); // Note: Change to current class
+public class Day01 extends Runner {
+    private static Runner runner = new Day01(); // Note: Change to current class
 
     public static void main(String[] args) {
         runner.run(MethodHandles.lookup().lookupClass().getSimpleName());
