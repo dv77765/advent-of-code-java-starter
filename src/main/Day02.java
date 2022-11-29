@@ -1,7 +1,6 @@
 package src.main;
 
 import java.lang.invoke.MethodHandles;
-import java.util.List;
 
 import src.main.___setup___.Runner;
 
@@ -13,12 +12,12 @@ public class Day02 extends Runner {
     }
 
     @Override
-    public String part1(List<String> input) {
+    public String part1(String[] input) {
         return null;
     }
 
     @Override
-    public String part2(List<String> input) {
+    public String part2(String[] input) {
         return null;
     }
 }

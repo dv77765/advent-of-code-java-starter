@@ -6,17 +6,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public abstract class Runner {
-    public abstract String part1(List<String> input);
+    public abstract String part1(String[] input);
 
-    public abstract String part2(List<String> input);
+    public abstract String part2(String[] input);
 
     public void run(String day) {
-        Map<String, List<String>> inputs = loadInputs(
+        Map<String, String[]> inputs = loadInputs(
                 String.format("%s\\src\\resources\\%s", System.getProperty("user.dir"), day));
 
         System.out.printf("\nRunning %s...\n", day);
@@ -31,23 +29,23 @@ public abstract class Runner {
         }
     }
 
-    private static List<String> loadInput(File file) {
+    private static String[] loadInput(File file) {
         try (BufferedReader r = new BufferedReader(new FileReader(file))) {
-            return r.lines().collect(Collectors.toList());
+            return r.lines().toArray(String[]::new);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     }
 
-    private static Map<String, List<String>> loadInputs(String path) {
+    private static Map<String, String[]> loadInputs(String path) {
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
 
-        Map<String, List<String>> inputs = new LinkedHashMap<>();
+        Map<String, String[]> inputs = new LinkedHashMap<>();
         for (int i = 0; i < listOfFiles.length; i++) {
             File file = listOfFiles[i];
             if (file.isFile() && file.getName().endsWith(".txt")) {
-                List<String> content = loadInput(file);
+                String[] content = loadInput(file);
                 inputs.put(file.getName(), content);
             }
         }
